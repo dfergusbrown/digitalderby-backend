@@ -585,6 +585,7 @@ export class GameServer {
         }
 
         this.stopMainLoop();
+        this.closeServer();
         break;
       }
     }
@@ -826,6 +827,7 @@ export class GameServer {
 
     const runner = () => {
       if (cancel) {
+        console.log("cancel WORKED!")
         return;
       }
 
@@ -842,6 +844,7 @@ export class GameServer {
       while (this.lag > SERVER_TICK_RATE_MS) {
         this.handleTick();
         this.lag -= BigInt(SERVER_TICK_RATE_MS);
+        console.log("ticking away")
         dirty = true;
       }
 
