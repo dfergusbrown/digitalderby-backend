@@ -584,7 +584,7 @@ export class GameServer {
           return;
         }
 
-        this.startBettingMode();
+        this.stopMainLoop();
         break;
       }
     }
